@@ -19,6 +19,8 @@ async function query(q) {
 
     const { rows } = result;
     return rows;
+  } catch (err) {
+    throw err;
   } finally {
     await client.end();
   }
