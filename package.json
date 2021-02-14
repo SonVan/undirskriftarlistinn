@@ -8,7 +8,7 @@
     "setup": "node setup.js",
     "eslint": "eslint *.js",
     "test": "npm run eslint",
-    "start": "node app.js --unhandled-rejections=strict",
+    "start": "node --unhandled-rejections=strict app.js",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "keywords": [],
