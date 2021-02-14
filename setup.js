@@ -20,7 +20,8 @@ async function query(q) {
     const { rows } = result;
     return rows;
   } catch (err) {
-    next(err);
+    console.error(err);
+    process.exit(1);
   } finally {
     await client.end();
   }
