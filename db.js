@@ -25,7 +25,7 @@ async function query(q, values = []) {
 
     return result;
   } catch (err) {
-    throw err;
+    console.log(err);
   } finally {
     await client.end();
   }
