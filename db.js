@@ -22,11 +22,7 @@ async function query(q, values = []) {
 
   try {
     const result = await client.query(q, values);
-
     return result;
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
   } finally {
     await client.end();
   }
