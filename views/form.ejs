@@ -1,0 +1,63 @@
+<%- include('header') -%>
+<div class="section section--form">
+  <h1>Undirskriftarlisti</h1>
+
+  <form method="post" action="/">
+    <div class="field<%= locals.isInvalid('name', errors) ?  ' field--invalid' : '' %>">
+      <label for="name">Nafn*</label>
+      <input type="text" name="name" id="name" value="<%= name %>" class="">
+    </div>
+
+    <div class="field<%= locals.isInvalid('nationalid', errors) ?  ' field--invalid' : '' %>">
+      <label for="nationalid">Kennitala*</label>
+      <input type="text" name="nationalid" id="nationalid" placeholder="000000-0000" value="<%= nationalid %>" class="">
+    </div>
+
+    <div class="field">
+      <label for="comment">Athugasemd:</label>
+      <textarea name="comment" id="comment"><%= comment %></textarea>
+    </div>
+
+    <div class="field field--checkbox">
+      <label><input type="checkbox" name="anonymous" value="true"> Ekki birta nafn á lista</label>
+    </div>
+
+
+    <% if (errors.length > 0) { %>
+      <h2>Vandræði við að senda umsókn:</h2>
+      <ul class="errors">
+        <% errors.forEach((error) => { %>
+          <li class="error"><label for="<%= error.param %>"><%= error.msg %></label></li>
+        <% }); %>
+      </ul>
+    <% } %>
+    <div class="confirm">
+      <button>Skrifa undir</button>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+  <h2>Undirskriftir</h2>
+
+  <div class="signatures">
+    <% if (list.length === 0) { %>
+      <p>Engar undirskriftir.</p>
+    <% } %>
+    <table>
+      <th>Dags</th>
+      <th id="table--name">Nafn</th>
+      <th>Athugasemd</th>
+    <% list.forEach((signature) => { %>
+      <tr>
+        <td><%= signature.signed.getDate() + "." + (signature.signed.getMonth()+1) + "." + signature.signed.getFullYear()%></td>
+        <td id="table--name"><%= signature.name %></td>
+        <td><%= signature.comment %></td>
+      </tr>
+    <% }); %>
+    </table>
+  </div>
+</div>
+
+
+<%- include('footer') -%>

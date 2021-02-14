@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html { /* stylelint-disable-line */
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Papyrus', fantasy;
+    font-size: 16px;
+    height: 100%;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+  }
+
+  h1 {
+      text-align: center;
+  }
+
+  h1, h2 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Papyrus', fantasy;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+
+  body {
+      background-image: url("bg.jpg");
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  main {
+    width: 1000px;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: rgb(255, 252, 232);
+    padding-left: 50px;
+    padding-right: 50px;
+    flex: 100%;    
+  }
+
+  footer {
+    color: #e6e6e6;
+    text-align: center;
+    background-color: #333;
+  }
+
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .section--form {
+    border-bottom: 1px dotted black;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .field label {
+    font-size: 1.25rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .field input,
+  .field textarea {
+    padding: 8px;
+    max-width: 800px;
+  
+    border: 1px solid #888;
+    border-radius: 3px;
+  }
+  
+  .field textarea {
+    flex: 1;
+    min-height: 6rem;
+  }
+  
+  .field--invalid input,
+  .field--invalid textarea {
+    border-color: #855;
+    background-color: #fbb;
+  }
+  
+  .field--checkbox {
+    padding: 1rem;
+  }
+  
+  .field--checkbox label {
+    flex: initial;
+    align-items: center;
+    display: flex;
+    margin: auto;
+  }
+
+  .field--checkbox input {
+    margin-right: 1rem;
+    transform : scale(1.75); 
+  }
+
+  .confirm {
+    text-align: center;
+  }
+  
+  button {
+    border-radius: 5px;
+    padding: 0.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #595959;
+    border: none;
+    cursor: pointer;
+    transition: background-color ease-in 300ms;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+
+  .errors {
+    margin-bottom: 2rem;
+  }
+
+  table {
+      border-spacing: 0px;
+  }
+
+  .signatures {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .signatures td, .signatures th {
+    border-bottom: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    padding: 0.5rem;
+  }
+  
+  
+  .signatures tr:hover {background-color: #ddd;}
+  
+  .signatures th {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: #595959;
+    color: white;
+  }
+
+  #table--name {
+    width: 150px;
+    border: initial;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .footerText { 
+    margin: 3rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  @media (min-width: 600px) {
+    .field {
+      flex-direction: row;
+    }
+  
+    .field label {
+      flex: 0 0 150px;
+    }
+  
+    .field--checkbox label {
+      flex: initial;
+    }
+  
+    .field input {
+      flex: 1;
+    }
+  }
+  
