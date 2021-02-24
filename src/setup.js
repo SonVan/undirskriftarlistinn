@@ -28,6 +28,6 @@ create().catch((err) => {
   console.error('Error creating schema', err);
 });
 
-create().catch((err) => {
-  console.error('Error creating schema', err);
+insertFake().catch((err) => {
+  console.error('Error inserting fake data', err);
 });
