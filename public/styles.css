@@ -1,202 +1,189 @@
 * {
-    padding: 0;
-    margin: 0;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  
-  html { /* stylelint-disable-line */
-    box-sizing: border-box;
-    overflow-x: hidden;
-    font-family: 'Papyrus', fantasy;
-    font-size: 16px;
-    height: 100%;
-  }
-  
-  input,
-  select,
-  textarea,
-  button {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-  }
+  padding: 0;
+  margin: 0;
+}
 
-  h1 {
-      text-align: center;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
-  h1, h2 {
-    margin-bottom: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'Papyrus', fantasy;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
+:root {
+  --color-paperwhite: #ffe;
+  --color-error: #a77;
+  --color-accent: #aa6;
+}
 
-  body {
-      background-image: url("bg.jpg");
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-  }
+html {
+  background-color: var(--color-paperwhite);
 
-  main {
-    width: 1000px;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: rgb(255, 252, 232);
-    padding-left: 50px;
-    padding-right: 50px;
-    flex: 100%;    
-  }
+  box-sizing: border-box;
 
-  footer {
-    color: #e6e6e6;
-    text-align: center;
-    background-color: #333;
-  }
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+}
 
-  .section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+input,
+textarea,
+button {
+  font-family: 'Georgia', sans-serif;
+  font-size: 20px;
+}
 
-  .section--form {
-    border-bottom: 1px dotted black;
-  }
-  
-  .field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  
-  .field label {
-    font-size: 1.25rem;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  .field input,
-  .field textarea {
-    padding: 8px;
-    max-width: 800px;
-  
-    border: 1px solid #888;
-    border-radius: 3px;
-  }
-  
-  .field textarea {
-    flex: 1;
-    min-height: 6rem;
-  }
-  
-  .field--invalid input,
-  .field--invalid textarea {
-    border-color: #855;
-    background-color: #fbb;
-  }
-  
-  .field--checkbox {
-    padding: 1rem;
-  }
-  
-  .field--checkbox label {
-    flex: initial;
-    align-items: center;
-    display: flex;
-    margin: auto;
-  }
+h1, h2 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
 
-  .field--checkbox input {
-    margin-right: 1rem;
-    transform : scale(1.75); 
-  }
+h1 {
+  margin-bottom: 1rem;
+}
 
-  .confirm {
-    text-align: center;
-  }
-  
-  button {
-    border-radius: 5px;
-    padding: 0.5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    font-size: 1.5rem;
-    color: #fff;
-    background-color: #595959;
-    border: none;
-    cursor: pointer;
-    transition: background-color ease-in 300ms;
-  }
-  
-  button:hover {
-    background-color: #333;
-  }
+h2 {
+  font-size: 1rem;
+}
 
-  .errors {
-    margin-bottom: 2rem;
-  }
+body {
+  display: flex;
+  flex-direction: column;
 
-  table {
-      border-spacing: 0px;
-  }
+  margin-top: 4rem;
+  padding: 0.5rem;
+}
 
-  .signatures {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .signatures td, .signatures th {
-    border-bottom: 1px solid #bbb;
-    border-right: 1px solid #bbb;
-    border-left: 1px solid #bbb;
-    padding: 0.5rem;
-  }
-  
-  
-  .signatures tr:hover {background-color: #ddd;}
-  
-  .signatures th {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    background-color: #595959;
-    color: white;
-  }
+main {
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+}
 
-  #table--name {
-    width: 150px;
-    border: initial;
-    border-bottom: 1px solid #bbb;
-  }
+h1,
+h2 {
+  text-align: center;
+}
 
-  .footerText { 
-    margin: 3rem;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  @media (min-width: 600px) {
-    .field {
-      flex-direction: row;
-    }
-  
-    .field label {
-      flex: 0 0 150px;
-    }
-  
-    .field--checkbox label {
-      flex: initial;
-    }
-  
-    .field input {
-      flex: 1;
-    }
-  }
-  
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px dotted var(--color-accent)
+}
+
+.field {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-size: 1rem;
+  min-width: 140px;
+}
+
+.field input,
+.field textarea {
+  flex: 1;
+  width: 100%;
+
+  padding: 8px;
+
+  border: 1px solid var(--color-accent);
+  border-radius: 3px;
+}
+
+.field--textarea {
+  align-items: flex-start;
+}
+
+.field textarea {
+  flex: 1;
+  min-height: 3rem;
+}
+
+.field--invalid input,
+.field--invalid textarea {
+  border-color: var(--color-accent);
+  background-color: #fbb;
+}
+
+.field--checkbox {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
+
+.field--checkbox label {
+  display: flex;
+  min-width: initial;
+}
+
+.field--checkbox input {
+  scale: 2;
+  margin-right: 1rem;
+}
+
+button {
+  width: 100%;
+  font-size: 2rem;
+  max-width: 300px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #fff;
+  transition: background-color ease-in 300ms;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+}
+
+.errors {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.errors__title {
+  margin-top: 1rem;
+}
+
+.registrations {
+  margin-bottom: 2rem;
+}
+
+.registrations__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.registrations__empty {
+  text-align: center;
+}
+
+.registrations__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--color-accent);
+  border-left: 1px solid var(--color-accent);
+}
+
+.registrations__table th,
+.registrations__table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-accent);
+  border-right: 1px solid var(--color-accent);
+  min-width: 100px;
+}
+
+.registrations__table .name {
+  min-width: 150px;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
