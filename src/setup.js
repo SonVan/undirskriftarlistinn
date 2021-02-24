@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import { query, end } from './db.js';
 
-const schemaFile = './sql/schema.sql';
+const schemaFile = './sql/fake.sql';
 const fakeFile = './sql/fake.sql';
 
 async function create() {
