@@ -23,5 +23,9 @@ async function insertFake() {
 }
 
 create().catch((err) => {
+  console.error('Error creating schema', err);
+});
+
+insertFake().catch((err) => {
   console.error('Error inserting data', err);
 });
