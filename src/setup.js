@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import { query, end } from './db.js';
 
-const schemaFile = './sql/fake.sql';
+const schemaFile = './sql/schema.sql';
 const fakeFile = './sql/fake.sql';
 
 async function create() {
@@ -17,8 +17,6 @@ async function insertFake() {
 
   await query(data.toString('utf-8'));
 
-  await end();
-
   console.info('Added fake data');
 }
 
@@ -29,3 +27,6 @@ create().catch((err) => {
 insertFake().catch((err) => {
   console.error('Error inserting data', err);
 });
+
+await end();
+
