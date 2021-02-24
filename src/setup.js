@@ -5,28 +5,19 @@ const schemaFile = './sql/schema.sql';
 const fakeFile = './sql/fake.sql';
 
 async function create() {
-  const data = await readFile(schemaFile);
+  const schema = await readFile(schemaFile);
+  const fake = await readFile(fakeFile);
+  const data = schema + fake;
 
   await query(data.toString('utf-8'));
 
-  console.info('Schema created');
-}
+  await end();
 
-async function insertFake() {
-  const data = await readFile(fakeFile);
-
-  await query(data.toString('utf-8'));
-
-  console.info('Added fake data');
+  console.info('Schema created & added fake data');
 }
 
 create().catch((err) => {
   console.error('Error creating schema', err);
 });
 
-insertFake().catch((err) => {
-  console.error('Error inserting data', err);
-});
-
-await end();
 
