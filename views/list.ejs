@@ -1,24 +1,25 @@
 
-<section class="registrations">
-  <h2 class="registrations__title">Undirskriftir</h2>
-
-  <% if (registrations.length === 0) { %>
-    <p class="registrations__empty">Engar undirskriftir.</p>
-  <% } else { %>
-    <table class="registrations__table" cellpadding="0">
-      <tr>
-        <th>Dags</th>
-        <th>Nafn</th>
-        <th>Athugasemd</th>
-      </tr>
-      <% registrations.forEach((row) => { %>
+<section>
+  <h2>Undirskriftir</h2>
+  <div class="registration">
+    <% if (registrations.length === 0) { %>
+      <p>Engar undirskriftir.</p>
+    <% } else { %>
+      <table>
         <tr>
-          <td class="date"><%= formatDate(row.signed) %></td>
-          <td class="name"><%= row.anonymous ? 'Nafnlaust' : row.name %></td>
-          <td class="comment"><%= row.comment %></td>
+          <th>Dags</th>
+          <th>Nafn</th>
+          <th>Athugasemd</th>
         </tr>
-      <% }) %>
-      </tr>
-    </table>
-  <% } %>
+        <% registrations.forEach((row) => { %>
+          <tr>
+            <td class="date"><%= formatDate(row.signed) %></td>
+            <td class="name"><%= row.anonymous ? 'Nafnlaust' : row.name %></td>
+            <td class="comment"><%= row.comment %></td>
+          </tr>
+        <% }) %>
+        </tr>
+      </table>
+    <% } %>
+  </div>
 </section>
