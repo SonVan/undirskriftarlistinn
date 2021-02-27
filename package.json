@@ -1,5 +1,5 @@
 {
-  "name": "vef2-2021-v2-synilausn",
+  "name": "vef2-2021-v2-svn5",
   "version": "1.0.0",
   "description": "",
   "main": "./src/app.js",
@@ -21,7 +21,9 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-validator": "^6.9.2",
+    "faker": "^5.4.0",
     "pg": "^8.5.1",
+    "pg-format": "^1.0.4",
     "xss": "^1.0.8"
   },
   "devDependencies": {

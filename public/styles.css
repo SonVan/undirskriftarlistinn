@@ -12,7 +12,7 @@
 html { /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Papyrus', fantasy;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   height: 100%;
 }
@@ -21,19 +21,18 @@ input,
 select,
 textarea,
 button {
-  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
 h1 {
     text-align: center;
+    font-family: 'Papyrus', fantasy;
 }
 
 h1, h2 {
   margin-bottom: 1rem;
   font-size: 3rem;
   font-weight: bold;
-  font-family: 'Papyrus', fantasy;
 }
 
 h2 {
@@ -71,6 +70,10 @@ section {
 
 .form {
   border-bottom: 1px dotted black;
+}
+
+.list {
+  font-family: 'Papyrus', fantasy;
 }
 
 .field {
@@ -145,6 +148,10 @@ button:hover {
   margin-bottom: 2rem;
 }
 
+.list h3 {
+  margin-bottom: 1rem;
+}
+
 table {
     border-spacing: 0px;
     border-top: 1px solid #bbb;
@@ -173,10 +180,12 @@ table {
   color: white;
 }
 
-#table--name {
-  width: 150px;
-  border: initial;
-  border-bottom: 1px solid #bbb;
+.name {
+  white-space: nowrap;
+}
+
+.comment {
+  width: 100%;
 }
 
 .footerText { 

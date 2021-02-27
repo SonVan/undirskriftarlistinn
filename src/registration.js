@@ -2,7 +2,7 @@ import express from 'express';
 import { body, validationResult } from 'express-validator';
 import xss from 'xss';
 
-import { list, insert } from './db.js';
+import { list, insert, count } from './db.js';
 
 export const router = express.Router();
 
@@ -25,10 +25,14 @@ async function index(req, res) {
     comment: '',
   };
 
-  const registrations = await list();
+  //const pagination = req.query.pagination ? parseInt(req.query.pagination) : 50;
+  const page = req.query.page ? parseInt(req.query.page) : 1;
+
+  const registrations = await list(page);
+  const rowLenght = await count();
 
   res.render('index', {
-    errors, formData, registrations,
+    errors, formData, registrations, rowLenght
   });
 }
 

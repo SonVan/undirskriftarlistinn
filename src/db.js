@@ -67,15 +67,16 @@ export async function insert({
 }
 
 /**
- * List all registrations from the registration table.
+ * List 50 registrations from the registration table.
  *
- * @returns {Promise<Array<list>>} Promise, resolved to array of all registrations.
+ * @param {int} page – which 50 registrations to list. Page = 1 returns the first 50 registrations.
+ * @returns {Promise<Array<list>>} Promise, resolved to array of 50 registrations.
  */
-export async function list() {
+export async function list(page) {
   let result = [];
   try {
     const queryResult = await query(
-      'SELECT name, nationalId, comment, anonymous, signed FROM signatures ORDER BY signed DESC',
+      `SELECT name, nationalId, comment, anonymous, signed FROM signatures ORDER BY signed DESC LIMIT 50 OFFSET ${(page-1)*50}`,
     );
 
     if (queryResult && queryResult.rows) {
@@ -83,6 +84,23 @@ export async function list() {
     }
   } catch (e) {
     console.error('Error selecting signatures', e);
+  }
+
+  return result;
+}
+
+export async function count() {
+  let result = [];
+  try {
+    const queryResult = await query(
+      'SELECT COUNT(*) AS count FROM signatures',
+    );
+
+    if (queryResult && queryResult.rows) {
+      result = queryResult.rows[0].count;
+    }
+  } catch (e) {
+    console.error('Error counting list', e);
   }
 
   return result;
