@@ -4,16 +4,34 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import dotenv from 'dotenv';
 import { format } from 'date-fns';
+import session from 'express-session';
 
 import { router as registrationRouter } from './registration.js';
+import { router as loginRouter } from './login.js';
+import { router as adminRouter } from './admin.js';
+
 
 dotenv.config();
 
 const {
   PORT: port = 3000,
+  SESSION_SECRET: sessionSecret,
+  DATABASE_URL: connectionString,
 } = process.env;
 
+if (!connectionString || !sessionSecret) {
+  console.error('Vantar gögn í env');
+  process.exit(1);
+}
+
 const app = express();
+
+app.use(session({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false,
+  maxAge: 30 * 24 * 60 * 1000, // 30 dagar
+}));
 
 // Sér um að req.body innihaldi gögn úr formi
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +58,13 @@ function isInvalid(field, errors = []) {
 
 app.locals.isInvalid = isInvalid;
 
+app.use((req, res, next) => {
+  // Látum `users` alltaf vera til fyrir view
+  res.locals.user = req.isAuthenticated() ? req.user : null;
+
+  next();
+});
+
 app.locals.formatDate = (str) => {
   let date = '';
 
@@ -53,6 +78,8 @@ app.locals.formatDate = (str) => {
 };
 
 app.use('/', registrationRouter);
+app.use(loginRouter);
+app.use(adminRouter);
 
 /**
  * Middleware sem sér um 404 villur.

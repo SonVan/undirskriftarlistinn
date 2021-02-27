@@ -25,8 +25,9 @@ button {
 }
 
 h1 {
-    text-align: center;
-    font-family: 'Papyrus', fantasy;
+  margin-top: 1rem;
+  text-align: center;
+  font-family: 'Papyrus', fantasy;
 }
 
 h1, h2 {
@@ -40,10 +41,10 @@ h2 {
 }
 
 body {
-    background-image: url("bg.jpg");
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+  background-image: url("bg.jpg");
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -140,10 +141,14 @@ button {
   transition: background-color ease-in 300ms;
 }
 
-button:hover {
+button:hover, 
+.tableFooter a:hover{
   background-color: #333;
 }
 
+form h2 {
+  font-family: 'Papyrus', fantasy;
+}
 .errors {
   margin-bottom: 2rem;
 }
@@ -153,9 +158,9 @@ button:hover {
 }
 
 table {
-    border-spacing: 0px;
-    border-top: 1px solid #bbb;
-    border-left: 1px solid #bbb;
+  border-spacing: 0px;
+  border-top: 1px solid #bbb;
+  border-left: 1px solid #bbb;
 }
 
 .registration {
@@ -186,6 +191,58 @@ table {
 
 .comment {
   width: 100%;
+}
+
+.tableFooter {
+  margin-top: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+}
+
+.tableFooter p {
+  margin: auto;
+}
+
+.hrefButton {
+  border-radius: 5px;
+  padding: 0.25rem;
+  padding-left: 2.0rem;
+  padding-right: 2.0rem;
+  color: #fff;
+  background-color: #595959;
+  border: none;
+  cursor: pointer;
+  transition: background-color ease-in 300ms;
+}
+
+.deleteButton {
+  font-size: initial;
+}
+
+.loginButton {
+  margin-top: 1.5rem;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.userInfo p {
+  margin-right: auto;
+}
+
+.userInfo a {
+  margin-left: auto;
+}
+
+.hrefButton:link, 
+.hrefButton:visited {
+  text-decoration: none;
+}
+
+.back {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footerText { 
