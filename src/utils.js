@@ -40,7 +40,7 @@ export function ensureAdmin(req, res, next) {
   }
 
   return res.redirect('/login');
-}*/
+} */
 
 /**
  * Hjálparfall sem XSS hreinsar reit í formi eftir heiti.

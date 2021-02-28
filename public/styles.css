@@ -69,6 +69,22 @@ section {
   padding-bottom: 2rem;
 }
 
+.header {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+.header .userInfo{
+  float: left;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 .form {
   border-bottom: 1px dotted black;
 }

@@ -25,12 +25,12 @@ async function index(req, res) {
     comment: '',
   };
 
-  const page = req.query.page ? parseInt(req.query.page) : 1;
+  const page = req.query.page ? Number(req.query.page) : 1;
   const registrations = await list(page);
   const rowLenght = await count();
 
   res.render('index', {
-    errors, formData, registrations, rowLenght, page, title: 'Undirskriftarlisti'
+    errors, formData, registrations, rowLenght, page, title: 'Undirskriftarlisti',
   });
 }
 
@@ -75,14 +75,16 @@ async function validationCheck(req, res, next) {
   const formData = {
     name, nationalId, comment, anonymous,
   };
-  const page = req.query.page ? parseInt(req.query.page) : 1;
+  const page = req.query.page ? Number(req.query.page) : 1;
   const registrations = await list(page);
   const rowLenght = await count();
 
   const validation = validationResult(req);
 
   if (!validation.isEmpty()) {
-    return res.render('index', { formData, errors: validation.errors, registrations, rowLenght, page, title: 'Undirskriftarlisti'});
+    return res.render('index', {
+      formData, errors: validation.errors, registrations, rowLenght, page, title: 'Undirskriftarlisti',
+    });
   }
 
   return next();

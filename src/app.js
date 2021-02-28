@@ -10,7 +10,6 @@ import { router as registrationRouter } from './registration.js';
 import { router as loginRouter } from './login.js';
 import { router as adminRouter } from './admin.js';
 
-
 dotenv.config();
 
 const {

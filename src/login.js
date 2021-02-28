@@ -3,7 +3,6 @@ import passport from 'passport';
 import { Strategy } from 'passport-local';
 import { userStrategy, serializeUser, deserializeUser } from './users.js';
 
-
 // Hægt að útfæra passport virkni hér til að létta á app.js
 
 export const router = express.Router();
@@ -32,7 +31,7 @@ router.get('/login', (req, res) => {
   return res.render('login', { page: 'login', title: 'Innskráning', message });
 });
 
-router.get('/logout', function(req, res){
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
@@ -49,4 +48,3 @@ router.post(
     res.redirect('/admin');
   },
 );
-

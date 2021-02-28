@@ -76,7 +76,7 @@ export async function list(page) {
   let result = [];
   try {
     const queryResult = await query(
-      `SELECT name, nationalId, comment, anonymous, signed FROM signatures ORDER BY signed DESC LIMIT 50 OFFSET ${(page-1)*50}`,
+      `SELECT name, nationalId, comment, anonymous, signed FROM signatures ORDER BY signed DESC LIMIT 50 OFFSET ${(page - 1) * 50}`,
     );
 
     if (queryResult && queryResult.rows) {
@@ -104,6 +104,12 @@ export async function count() {
   }
 
   return result;
+}
+
+export async function deleteRow(nationalId) {
+  const q = 'DELETE FROM signatures WHERE nationalid = $1';
+
+  return query(q, [nationalId]);
 }
 
 // Helper to remove pg from the event loop
